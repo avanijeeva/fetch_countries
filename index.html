@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+
+</head>
+
+<body>
+    <div id="hero">
+        <div class="container">
+            <div class="info">
+                <h1>Discover</h1>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. <br>Numquam corrupti, aliquid ea sit
+                    voluptate
+                    laborum quia dicta non molestias</p>
+                <input type="text" placeholder="search" id=cntry_name>
+                <div class="button">
+                    <button type="button" onclick="getDetails()">
+                        <span class="button__text">GetDetails</span>
+                        <span class="button__icon">
+                            <ion-icon name="earth-outline"></ion-icon>
+                        </span>
+
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+<script>
+    function getDetails() {
+        var country_name = cntry_name.value;
+        fetch(`https://restcountries.com/v2/name/${country_name}?fullText=true`).
+            then(res => res.json()).
+            then(data => displayValue(data))
+    }
+    function displayValue(country_data){
+        console.log(country_data[0].name);
+        let country_name=country_data[0].name
+        let population=country_data[0].population
+        let capital=country_data[0].capital
+        let currency=country_data[0].currencies[0].name
+        let currency_symbol=country_data[0].currencies[0].symbol
+        let flag=country_data[0].flag
+        let html_data=`
+        <div class="card" style="width: 18rem;">
+  <img src="${flag}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">${country_name}</h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">population:${population}</li>
+    <li class="list-group-item">capital:${capital}</li>
+    <li class="list-group-item">currency:${currency}</li>
+    <li class="list-group-item">symbol:${currency_symbol}</li>
+
+  </ul>
+</div>`
+
+
+
+
+    }
+</script>
+
+</html>

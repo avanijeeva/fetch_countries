@@ -23,7 +23,7 @@ button{
     font-weight: bold;
     cursor: pointer;
     height: 50px;
-    margin-left: 80px;
+    margin-left:80px;
     margin-top: 50px;
     
 } 
@@ -33,7 +33,7 @@ button{
     align-items: center;
 }
 
-.container{
+/* .container{
     width: 50%;
     height: 100vh;
     background: rgba(86,86,86,0.3);
@@ -41,14 +41,14 @@ button{
     position: absolute;
     left:0;
     top:0;
-}
+} */
 .info{
     width: 550px;
     color: #fff;
     position: absolute;
-    right: 0;
+    right: 20%;
     top:50%;
-    transform:translateY(-50%);
+    transform:translateY(-20%);
 }
 .info h1{
     font-size: 60px;
@@ -69,7 +69,4 @@ button{
     background: transparent;
     color: #fff;
     font-size: 12px;
-}
-::placeholder{
-    color: #ccc;
 }
